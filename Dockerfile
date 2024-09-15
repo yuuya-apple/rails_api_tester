@@ -7,4 +7,4 @@ COPY Gemfile.lock /app/Gemfile.lock
 
 RUN bundle install
 
-ENTRYPOINT ["rails", "server", "-b", "0.0.0.0", "-p", "3000"]
+CMD ["rails", "server", "-b", "0.0.0.0", "-p", "3000"]
