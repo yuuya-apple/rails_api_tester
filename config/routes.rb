@@ -10,6 +10,8 @@ Rails.application.routes.draw do
   put "/flag", to: "test#fina_flag"
 
   get "/candle", to: "test#fina_candle"
+  get "/test", to: "test#test_test"
+
 
 
   # Defines the root path route ("/")
