@@ -1,6 +1,9 @@
 require "active_support/core_ext/integer/time"
 
-Rails.application.configure do
+Rails.application.configure do |host|
+
+    Rails.logger.info("Allowed host: #{host}")
+
 
   config.hosts << "railsapitester-production.up.railway.app"
   config.hosts << "localhost"
