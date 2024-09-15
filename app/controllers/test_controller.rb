@@ -34,7 +34,7 @@ class TestController < ApplicationController
       end
     end
 
-    render json: { open: open, high: high, low: low, close: close }
+    render json: { "open": open, "high": high, "low": low, "close": close }
   end
 
   def test_test
