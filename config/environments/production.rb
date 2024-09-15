@@ -2,9 +2,9 @@ require "active_support/core_ext/integer/time"
 
 Rails.application.configure do |host|
 
-    Rails.logger.info("Allowed host: #{host}")
+  Rails.logger.info("Allowed host: #{host}")
     
-    config.hosts.clear
+  config.hosts << "https://skill-test.st8.workers.dev"
 
   # Settings specified here will take precedence over those in config/application.rb.
 
