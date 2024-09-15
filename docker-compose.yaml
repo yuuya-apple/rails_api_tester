@@ -1,17 +1,18 @@
-version: '3'
+version: "3"
 services:
-  web:
+  backend:
     build: .
-    command: rails server -b 0.0.0.0
     volumes:
-      - ".:/usr/src/app"
+      - .:/app
+    command: /bin/sh -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
     ports:
       - "3000:3000"
   db:
-    image: postgres:latest
+    image: postgres
     volumes:
-      - "postgres_data:/var/lib/postgresql/data"
+      - dbdata:/var/lib/postgresql/data
     environment:
-      POSTGRES_PASSWORD: password
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
 volumes:
-  postgres_data:
+  dbdata:
