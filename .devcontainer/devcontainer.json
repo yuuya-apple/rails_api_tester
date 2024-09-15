@@ -1,0 +1,13 @@
+{
+  "name": "My Dockerized Development Environment",
+  "dockerComposeFile": "../docker-compose.yaml",
+  "service": "backend",
+  "workspaceFolder": "/app",
+  "customizations": {
+    "vscode": {
+      "extensions": ["rubocop.vscode-rubocop"]
+    }
+  },
+  "forwardPorts": [3000],
+  "postCreateCommand": "bundle install"
+}
