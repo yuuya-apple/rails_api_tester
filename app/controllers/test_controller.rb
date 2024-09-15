@@ -15,20 +15,24 @@ class TestController < ApplicationController
     start_date="#{params[:year]}#{sprintf("%02d", params[:month])}#{sprintf("%02d", params[:day])}#{sprintf("%02d", params[:hour])}".to_datetime
     end_date=start_date+ Rational(1, 24)
 
+    logger.debug start_date
+    logger.debug end_date
+
     code=params[:code]
-
-
 
     open=nil
     high=0
     low=0
     close=0
 
+
     CSV.foreach("order_books.csv") do |row|
       next if row[0]=="time"
-      break row[0].to_datetime >= end_date
 
-      if row[0].to_datetime >= start_date && code==row[1]
+
+
+
+      if row[0].to_datetime >= start_date && code==row[1] && row[0].to_datetime >= end_date
         if open.nil?
           open=row[2].to_i
           low=row[2].to_i
@@ -36,6 +40,8 @@ class TestController < ApplicationController
         high=row[2].to_i if high < row[2].to_i
         low=row[2].to_i if low > row[2].to_i
         close=row[2].to_i
+
+        logger.debug row[0].to_datetime
       end
     end
 
