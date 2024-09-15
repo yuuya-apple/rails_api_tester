@@ -9,4 +9,8 @@ class TestController < ApplicationController
   def fina_flag
     p params[:flag]
   end
+
+  def fina_candle
+    p params
+  end
 end

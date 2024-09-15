@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   put "/login", to: "test#fina_login"
   put "/flag", to: "test#fina_flag"
 
+  get "/candle", to: "test#fina_candle"
 
 
   # Defines the root path route ("/")
