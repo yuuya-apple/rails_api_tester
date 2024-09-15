@@ -1,8 +1,8 @@
 require "active_support/core_ext/integer/time"
 
 Rails.application.configure do |host|
+  config.secret_key_base = ENV["SECRET_KEY_BASE"]
 
-  
   config.hosts << "railsapitester-production.up.railway.app"
 
   # Settings specified here will take precedence over those in config/application.rb.
@@ -96,5 +96,4 @@ Rails.application.configure do |host|
   # ]
   # Skip DNS rebinding protection for the default health check endpoint.
   # config.host_authorization = { exclude: ->(request) { request.path == "/up" } }
-
 end
