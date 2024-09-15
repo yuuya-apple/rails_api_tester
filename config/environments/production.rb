@@ -3,8 +3,8 @@ require "active_support/core_ext/integer/time"
 Rails.application.configure do |host|
 
   Rails.logger.info("Allowed host: #{host}")
-    
-  config.hosts << "https://skill-test.st8.workers.dev"
+  
+  config.hosts << "railsapitester-production.up.railway.app"
 
   # Settings specified here will take precedence over those in config/application.rb.
 

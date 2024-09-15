@@ -15,10 +15,12 @@
 #   end
 # end
 
-
 Rails.application.config.middleware.insert_before 0, Rack::Cors do
   allow do
-    origins 'railsapitester-production.up.railway.app', 'localhost'
-    resource '*', headers: :any, methods: [:get, :post, :patch, :put]
+    origins '*'
+    resource '*',
+      headers: :any,
+      methods: [:get, :post, :put, :patch, :delete, :options, :head],
+      credentials: true
   end
 end
