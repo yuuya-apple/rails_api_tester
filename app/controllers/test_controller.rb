@@ -27,7 +27,7 @@ class TestController < ApplicationController
     CSV.foreach("order_books.csv") do |row|
       next if row[0]=="time"
 
-      if range.cover?(row[0].to_datetime) && row[0].to_datetime < end_date
+      if range.cover?(row[0].to_datetime) && code==row[1]
         if open.nil?
           open=row[2].to_i
           low=row[2].to_i
