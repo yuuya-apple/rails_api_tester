@@ -1,7 +1,7 @@
 {
   "name": "My Dockerized Development Environment",
   "dockerComposeFile": "../docker-compose.yaml",
-  "service": "backend",
+  "service": "web",
   "workspaceFolder": "/app",
   "customizations": {
     "vscode": {

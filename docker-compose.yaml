@@ -1,17 +1,21 @@
-version: '3'
+version: "3"
 services:
+  db:
+    image: postgres
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
   web:
     build: .
-    command: rails server -b 0.0.0.0
+    command: rails server -b 0.0.0.0 -p 3000
     volumes:
-      - ".:/usr/src/app"
+      - ".:/app"
     ports:
       - "3000:3000"
-  db:
-    image: postgres:latest
-    volumes:
-      - "postgres_data:/var/lib/postgresql/data"
-    environment:
-      POSTGRES_PASSWORD: password
+    depends_on:
+      - db
+
 volumes:
   postgres_data:
