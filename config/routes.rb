@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 
 
   put "/login", to: "test#fina_login"
+  put "/flag", to: "test#fina_flag"
 
 
 

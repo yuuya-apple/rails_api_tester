@@ -7,7 +7,7 @@ development:
   <<: *default
   username: postgres
   password: postgres
-  host: dbaaa
+  host: db
   database: myapp_development
 
 test:
