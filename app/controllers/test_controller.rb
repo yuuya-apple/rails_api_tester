@@ -13,7 +13,11 @@ class TestController < ApplicationController
 
   def fina_candle
     start_date="#{params[:year]}#{sprintf("%02d", params[:month])}#{sprintf("%02d", params[:day])}#{sprintf("%02d", params[:hour])}".to_datetime
+    end_date=start_date+ Rational(1, 24)
+
     code=params[:code]
+
+
 
     open=nil
     high=0
@@ -22,6 +26,7 @@ class TestController < ApplicationController
 
     CSV.foreach("order_books.csv") do |row|
       next if row[0]=="time"
+      break row[0].to_datetime >= end_date
 
       if row[0].to_datetime >= start_date && code==row[1]
         if open.nil?
