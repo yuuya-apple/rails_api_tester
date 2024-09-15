@@ -1,9 +1,10 @@
 require "active_support/core_ext/integer/time"
 
 Rails.application.configure do
-  
-  config.hosts.clear
 
+  config.hosts << "railsapitester-production.up.railway.app"
+  config.hosts << "localhost"
+  config.hosts << "0.0.0.0" 
   # Settings specified here will take precedence over those in config/application.rb.
 
   # Code is not reloaded between requests.
