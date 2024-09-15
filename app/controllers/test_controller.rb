@@ -12,7 +12,7 @@ class TestController < ApplicationController
   end
 
   def fina_candle
-    start_date="#{params[:year]}#{params[:month]}#{params[:day]}#{sprintf("%02d", params[:hour])}".to_datetime
+    start_date="#{params[:year]}#{sprintf("%02d", params[:month])}#{sprintf("%02d", params[:day])}#{sprintf("%02d", params[:hour])}".to_datetime
     code=params[:code]
 
     open=nil
