@@ -1,24 +1,18 @@
-# README
+# railwayデプロイで詰まったこと
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Dockerfileの見直し
+RUN apt-get update -qq && apt-get install -y nodejs postgresql-client
+上記パッケージを追加しないと一向にrailsサーバーが立ち上がらない。
 
-Things you may want to cover:
+## DBとの接続
+DBサーバーも立ち上げよう。
 
-* Ruby version
+## 環境変数
+環境変数で**RAILS_ENV**に`production`を設定しよう。
+明示的に設定しないとdev環境に向いちゃう
 
-* System dependencies
+## hostの設定
 
-* Configuration
+config.hosts << "railsapitester-production.up.railway.app"
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+hostの設定は`/app/config/application.rb`と`/app/config/environments/production.rb`に必要
